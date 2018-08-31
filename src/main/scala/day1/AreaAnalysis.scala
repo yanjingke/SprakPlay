@@ -30,7 +30,7 @@ object AreaAnalysis {
      val avg= x._2._1/x._2._2
       (x._1,avg)
     })
-    val sort=avghome.sortBy(_._2)
+    val sort=avghome.sortBy(_._2,false)
     val sig_city=avghome.filter(_._1=="犀浦")
     val totalm=dr.map(x=>{
       ("total",x._2._4)
@@ -43,7 +43,7 @@ object AreaAnalysis {
     val all_avg=jointo.map(x=>{
       ("avg",(x._2._2/x._2._1))
     })
-    print( all_avg.collect().toBuffer)
+    print( sort.collect().toBuffer)
     sc.stop()
   }
 }
